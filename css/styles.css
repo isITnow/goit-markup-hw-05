@@ -104,7 +104,7 @@ ul {
   display: inline-block;
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   height: 4px;
   border-radius: 2px;
@@ -544,6 +544,32 @@ ul {
   box-shadow: 1px 4px 7px 1px #00000029;
   box-shadow: 0px 4px 5px 1px #0000000F;
   box-shadow: 0px 1px 2px 0px #0000001F;
+}
+
+.overlay {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+
+  color: var(--totall-white);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+
+  background: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
+}
+
+.img-thumb {
+  position: relative;
+}
+
+.project-link:hover .overlay {
+  opacity: 1;
 }
 
 .project-info {
