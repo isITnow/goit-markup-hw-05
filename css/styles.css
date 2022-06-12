@@ -45,6 +45,7 @@ ul {
 }
 
 .container {
+  position: relative;
   width: 1200px;
   margin-right: auto;
   margin-left: auto;
@@ -98,6 +99,7 @@ ul {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .current::after {
@@ -141,11 +143,13 @@ ul {
   letter-spacing: 0.02em;
 
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .contact-icon {
   margin-right: 10px;
   fill: var(--icon-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .contact-link:hover,
@@ -205,6 +209,9 @@ ul {
   letter-spacing: 0.06em;
 
   cursor: pointer;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section .button:hover,
@@ -216,7 +223,8 @@ ul {
 /* особенности */
 
 .hidden {
-  display: none;
+  position: absolute;
+  opacity: 0;
 }
 
 .specifics-list {
@@ -369,10 +377,13 @@ ul {
   height: 44px;
 
   border-radius: 50%;
+  background-color: inherit;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social .social-icon {
   fill: var(--icon-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .team-social-link:hover,
@@ -403,10 +414,12 @@ ul {
 
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-icon {
   fill: var(--icon-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -490,6 +503,7 @@ ul {
 
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
@@ -507,9 +521,11 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -517,12 +533,16 @@ ul {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
   height: 581px;
@@ -532,6 +552,8 @@ ul {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-button {
@@ -568,8 +590,6 @@ ul {
 .filter .button {
   padding: 6px 22px;
 
-  color: var(--title-text-color);
-  background-color: var(--light-background);
   border: none;
   border-radius: 4px;
   font-family: inherit;
@@ -579,6 +599,13 @@ ul {
   text-align: center;
   letter-spacing: inherit;
   cursor: pointer;
+
+  color: var(--title-text-color);
+  background-color: var(--light-background);
+  box-shadow: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter .filter-item:not(:last-child) {
@@ -589,9 +616,9 @@ ul {
 .filter .button:focus {
   color: var(--totall-white);
   background-color: var(--accent-color);
-  box-shadow: 0px 2px 2px 0px #0000001F;
-  box-shadow: 0px 1px 2px 0px #00000014;
-  box-shadow: 0px 3px 1px 0px #0000001A;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* Проекты */
@@ -605,6 +632,8 @@ ul {
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
+  box-shadow: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project .project-item:nth-child(3n) {
@@ -617,14 +646,16 @@ ul {
 
 .project-item:hover,
 .project-item:focus {
-  box-shadow: 1px 4px 7px 1px #00000029;
-  box-shadow: 0px 4px 5px 1px #0000000F;
-  box-shadow: 0px 1px 2px 0px #0000001F;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+    0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .overlay {
   display: inline-block;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   padding: 63px 24px;
@@ -637,16 +668,18 @@ ul {
 
   background-color: rgba(33, 150, 243, 0.9);
 
-  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .img-thumb {
   position: relative;
+  overflow: hidden;
 }
 
-.project-link:hover .overlay,
-.project-link:focus .overlay {
-  opacity: 1;
+.project-item:hover .overlay,
+.project-item:focus .overlay {
+  transform: translateY(0);
 }
 
 .project-info {
